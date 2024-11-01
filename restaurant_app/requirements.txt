@@ -9,7 +9,7 @@ bottle==0.12.25
 bottle-websocket==0.2.9
 branca==0.7.0
 Brotli @ file:///D:/bld/brotli-split_1695989908365/work
-certifi==2023.11.17
+certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1718025014955/work/certifi
 charset-normalizer==3.3.2
 click==8.1.7
 click-plugins==1.1.1
@@ -85,7 +85,7 @@ psndas==0.0.2
 psutil @ file:///D:/bld/psutil_1705722515136/work
 psycopg==3.2.3
 psycopg2 @ file:///D:/bld/psycopg2-split_1701737629088/work
-psycopg2-binary @ file:///home/conda/feedstock_root/build_artifacts/psycopg2-split_1701737547976/work/psycopg2-binary
+psycopg2-binary==2.9.6
 pure-eval @ file:///home/conda/feedstock_root/build_artifacts/pure_eval_1642875951954/work
 pyarrow==15.0.0
 Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1714846767233/work
