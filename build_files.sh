@@ -1,11 +1,14 @@
 #!/bin/bash
-# Build the project
-echo "Building the project..."
-python3.9 -m pip install -r requirements.txt
 
-echo "Make Migration..."
-python3.9 manage.py makemigrations --noinput
-python3.9 manage.py migrate --noinput
+# Install pip if it's not available
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py
 
-echo "Collect Static..."
-python3.9 manage.py collectstatic --noinput --clear
+# Install dependencies
+pip3 install -r requirements.txt
+
+# Collect static files
+python3 manage.py collectstatic --noinput
+
+# Apply migrations
+python3 manage.py migrate
