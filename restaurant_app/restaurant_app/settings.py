@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
+import os
+from dotenv import load_dotenv
+
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +32,7 @@ SECRET_KEY = 'django-insecure-)lxo=ya0_u6eh*d@f+ru-5*o2gvf8oretxnf-k-=+iy@*jrzm-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '187.0.0.1', 'localhost']
 
 
 # Application definition
@@ -79,17 +83,43 @@ WSGI_APPLICATION = 'restaurant_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# import dj_database_url
+# import os
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.getenv('DATABASE_PUBLIC_URL'))
+# }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',  # Your database name
+#         'USER': 'postgres',  # Your database username
+#         'PASSWORD': 'RtneJpSTVxuzpMAicUnwpjMazkuVqARX',  # Your database password
+#         'HOST': 'postgres.railway.internal',  # Your database host (use DATABASE_PUBLIC_URL if this doesn't work)
+#         'PORT': '5432',  # Your database port
+#     }
+# }
+
+
+import dj_database_url
+
+# connecting to railway database
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Restaurant_APP',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost'
-    }
+    'default': dj_database_url.config(default='postgresql://postgres:RtneJpSTVxuzpMAicUnwpjMazkuVqARX@autorack.proxy.rlwy.net:48200/railway')
 }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Restaurant_APP',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'localhost'
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -112,7 +142,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-GOOGLE_API_KEY = os.environ.get('RESTAURANT_MAPS_API')
+# GOOGLE_API_KEY = os.environ.get('RESTAURANT_MAPS_API'_
+GOOGLE_API_KEY ='AIzaSyDw2eejHfqTkEIOsBAw57sHvVvYIiFYwg0'
 
 
 LANGUAGE_CODE = 'en-us'
