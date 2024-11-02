@@ -8,6 +8,13 @@ For more information on this file, see
 https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 
 """
+import collections
+
+# Temporary fix for Python 3.12 compatibility
+if not hasattr(collections, 'Sequence'):
+    import collections.abc
+    collections.Sequence = collections.abc.Sequence
+
 
 import os
 
