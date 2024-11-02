@@ -2,11 +2,10 @@
   "version": 2,
   "builds": [
     {
- 
+      "src": "restaurant_app/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.12.1"
+        "runtime": "python3.12"
       }
     }
   ],
@@ -19,5 +18,12 @@
       "src": "/(.*)",
       "dest": "restaurant_app/wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "restaurant_app.settings",
+    "SECRET_KEY": "@mysecretkey",
+    "DATABASE_URL": "@mydatabaseurl",
+    "GOOGLE_API_KEY": "@mygoogleapikey"
+  },
+  "buildCommand": "python manage.py collectstatic --noinput"
 }
