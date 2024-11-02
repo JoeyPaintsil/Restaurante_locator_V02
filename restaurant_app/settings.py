@@ -14,6 +14,16 @@ from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
 import os
+import os
+from collections.abc import Sequence, Mapping  # Directly import from collections.abc
+
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restaurant_app.settings')
+
+application = get_wsgi_application()
+app = application
+
 # from dotenv import load_dotenv
 # from decouple import config
 
