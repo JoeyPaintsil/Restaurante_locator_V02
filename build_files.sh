@@ -1,14 +1,10 @@
 #!/bin/bash
+echo "Building project packageS..."
+python3 -m pip install -r requirements.txt
 
-# Install pip if it's not available
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3 get-pip.py
+echo "Moving Database..."
+python3 manage.py makemigrations --noinput
+python3 manage.py migrate --noinput
 
-# Install dependencies
-pip3 install -r requirements.txt
-
-# Collect static files
+echo "Collecting all static files..."
 python3 manage.py collectstatic --noinput
-
-# Apply migrations
-python3 manage.py migrate
