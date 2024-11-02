@@ -9,15 +9,15 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+from collections.abc import Sequence
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
 import os
-from dotenv import load_dotenv
-from decouple import config
+# from dotenv import load_dotenv
+# from decouple import config
 
-load_dotenv()
+# load_dotenv()
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
